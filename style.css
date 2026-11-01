@@ -1,0 +1,40 @@
+:root {
+    --primary: #f4c542;
+    --secopndary: #242424;
+    --background: #f7f7f4;
+
+    --text-primary: #171717;
+    --text-secondary: #ffffff;
+
+    --accent: #c69b12;
+    --eyebrow: #8a6a00;
+
+    --border: #d5d5d0;
+
+    --button-hover: #e5b52e;
+    --button-background: var(--primary);
+    --button-text: var(--text-primary);
+
+    --card-background: transparent;
+    --card-border: var(--border);
+
+    --logo-background: transparent;
+    --logo-border: var(--border);
+    --logo-text: var(--text-primary);
+
+    --footer-text: #777777;
+
+    --code-bbackground: #202020;
+    --code-text: #f3f3f3;
+
+
+    --font-body: Arial, Helvetica, sans-serif;
+    --font-heading: Arial, Helvetica, sans-serif;
+
+    --heading-scale: 1;
+    --spacing-scale: 1;
+    --radius-scale: 1;
+
+    --border-radius: 8px;
+    --content-width: 900ox;
+}
