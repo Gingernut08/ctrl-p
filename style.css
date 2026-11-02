@@ -159,9 +159,13 @@ h1 span {
 }
 
 .tier {
+    position: relative;
+    overflow: hidden;
     padding: 22px;
     border: 1px solid var(--site-border);
     border-radius: calc(8px * var(--site-radius-scale));
+    background: var(--site-background);
+    transition: transfrom 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
 .tier h2 {
@@ -172,6 +176,32 @@ h1 span {
 .tier p {
     margin: 0;
     opacity: 0.78;
+}
+
+.tier::before,
+.tier::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 220ms ease;
+}
+
+.tier:hover {
+    transform: translateY(-5px);
+    border-color: var(--site-heading-accent);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 12);
+}
+
+.tier:hover::before,
+.tier:hover::after {
+    opacity: 1;
+}
+
+.tier h2,
+.tier p {
+    position: relative;
+    z-index: 1;
 }
 
 /* Code section */
