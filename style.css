@@ -1,18 +1,18 @@
 
 :root {
     /* Colours */
-    --site-primary: #f4c542;
-    --site-secondary: #242424;
-    --site-background: #f7f7f4;
+    --site-primary: #aa8725;
+    --site-secondary: #beae96;
+    --site-background: #44443f;
 
-    --site-on-primary: #171717;
+    --site-on-primary: #3b3630;
     --site-on-secondary: #ffffff;
-    --site-on-background: #171717;
+    --site-on-background: #d8c6a5;
 
     --site-eyebrow: #8a6a00;
-    --site-heading-accent: #c69b12;
+    --site-heading-accent: #a78411;
 
-    --site-code-background: #202020;
+    --site-code-background: #ddd5bb;
     --site-code-foreground: #f3f3f3;
 
     --site-border: color-mix(
@@ -165,7 +165,7 @@ h1 span {
     border: 1px solid var(--site-border);
     border-radius: calc(8px * var(--site-radius-scale));
     background: var(--site-background);
-    transition: transfrom 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
 .tier h2 {
@@ -244,9 +244,69 @@ h1 span {
     );
 }
 
+.plotter-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease;
+}
+
+.tier-plotter:hover .plotter-art {
+    opacity: 0.5;
+}
+
+.plotter-path {
+    fill: none;
+    stroke: #2882dc;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+}
+
+.tier-plotter:hover .plotter-path {
+    animation: plotter-cycle 7s ease-in-out infinite;
+}
+
+.tier-printer:hover::before {
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent 0 8px,
+        rgba(244, 197, 66, 0.35) 9px 10px
+    );
+    animation: print-lines 1.2s linear infinite
+}
+
 @keyframes laser-sweep {
     from {top: 25%;}
     to {top: 75%;}
+}
+
+@keyframes print-lines {
+    from {background-position: 0 0;}
+    to {background-position: 0 18px;}
+}
+
+
+@keyframes plotter-cycle {
+    0% {
+        stroke-dashoffset: 3000;
+    }
+    45% {
+        stroke-dashoffset: 0;
+    }
+    55% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -3000;
+    }
 }
 
 /* Code section */
